@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.10.6-slim
 
 RUN apt update && \
     apt install --no-install-recommends -y build-essential gcc && \
@@ -13,14 +13,13 @@ COPY models/ models/
 
 WORKDIR /
 RUN pip install --upgrade pip
-
 RUN pip install -r requirements.txt --no-cache-dir
 # torch cpu requires special command
-RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu --no-cache-dir
 
 # and finally our own module
 RUN pip install -e .
 
-ENTRYPOINT ["python", "-u", "mlops_cc/models/train_model.py"]
+ENTRYPOINT ["python", "-u", "mlops_cc/models/predict_model.py"]
 
 # ENTRYPOINT ["/bin/bash"]
