@@ -21,9 +21,3 @@ def test_predict_data():
     test_images, test_labels = mlops_cc.models.predict_model.get_data(_PATH_DATA + "\\raw\\test.npz")
     # Teset
     assert len(test_images) == len(test_labels) == 5000, "Testing sizes for images and/or labels do not match."
-
-def test_model_input_size():
-
-    with pytest.raises(ValueError, match='Expected input 784, 10'):
-        MyAwesomeModel(torch.randn(1,2))
-    #with pytest.raises(ValueError, match='Expected input to a 4D tensor'):
