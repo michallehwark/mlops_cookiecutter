@@ -4,7 +4,6 @@ import torch
 from torch.utils.data import DataLoader, TensorDataset
 import mlops_cc.models.predict_model
 import os
-import MyAwesomeModel
 
 @pytest.mark.skipif(not os.path.exists("data/processed/images.pt"), reason="data images not found")
 @pytest.mark.skipif(not os.path.exists("data/processed/labels.pt"), reason="data labels not found")
