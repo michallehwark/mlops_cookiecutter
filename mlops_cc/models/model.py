@@ -16,7 +16,6 @@ class MyAwesomeModel(nn.Module):
 
     def forward(self, x):
         
-        raise ValueError("Expected input: 784, 10")
         x = self.relu(self.fc1(x))
         x = self.relu(self.fc2(x))
         x = self.relu(self.fc3(x))
